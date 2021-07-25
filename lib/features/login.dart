@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 
-import 'package:cuit/widgets/PasswordInput.dart';
-import 'package:cuit/widgets/TextInput.dart';
 import 'package:cuit/widgets/logo.dart';
+import 'package:cuit/widgets/text_input.dart';
+import 'package:cuit/widgets/password_input.dart';
 
-class Signup extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
-  _SignupState createState() => _SignupState();
+  _LoginState createState() => _LoginState();
 }
 
-class _SignupState extends State<Signup> {
+class _LoginState extends State<Login> {
   TextEditingController _emailController;
-  TextEditingController _fullnameController;
   TextEditingController _passwordController;
 
   @override
   void initState() {
     super.initState();
     _emailController = TextEditingController();
-    _fullnameController = TextEditingController();
     _passwordController = TextEditingController();
   }
 
   @override
   void dispose() {
     _emailController.dispose();
-    _fullnameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -57,7 +54,7 @@ class _SignupState extends State<Signup> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Daftar",
+                            "Masuk",
                             style: TextStyle(
                                 fontWeight: FontWeight.w900,
                                 color:
@@ -68,7 +65,7 @@ class _SignupState extends State<Signup> {
                             height: 10.0,
                           ),
                           Text(
-                            "Isi identitas profil kamu.",
+                            "Hai! selamat datang kembali.",
                             style: TextStyle(
                                 color:
                                     Theme.of(context).textTheme.bodyText1.color,
@@ -79,12 +76,6 @@ class _SignupState extends State<Signup> {
                           ),
                           TextInput(
                               hintText: "Email", controller: _emailController),
-                          SizedBox(
-                            height: 14.0,
-                          ),
-                          TextInput(
-                              hintText: "Nama lengkap",
-                              controller: _fullnameController),
                           SizedBox(
                             height: 14.0,
                           ),
@@ -104,7 +95,7 @@ class _SignupState extends State<Signup> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Sudah punya akun?',
+                                  'Belum punya akun?',
                                   style: TextStyle(
                                       color: Theme.of(context)
                                           .textTheme
@@ -114,8 +105,8 @@ class _SignupState extends State<Signup> {
                                 ),
                                 TextButton(
                                     onPressed: () =>
-                                        Navigator.pushNamed(context, '/login'),
-                                    child: Text("Masuk",
+                                        Navigator.pushNamed(context, '/signup'),
+                                    child: Text("Daftar",
                                         style: TextStyle(
                                             color: Theme.of(context)
                                                 .textTheme
@@ -133,11 +124,10 @@ class _SignupState extends State<Signup> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       print(_emailController.text);
-                                      print(_fullnameController.text);
                                       print(_passwordController.text);
                                     },
                                     child: Text(
-                                      "Buat akun",
+                                      "Masuk",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700),
                                     )))

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:cuit/pages/onboarding.dart';
-import 'package:cuit/pages/signup.dart';
-import 'package:cuit/pages/login.dart';
+import 'file:///C:/Users/User/Desktop/cuit/lib/features/onboarding/onboarding.dart';
+import 'package:cuit/features/signup.dart';
+import 'package:cuit/features/login.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
 
+import 'package:cuit/widgets/password_input.dart';
+import 'package:cuit/widgets/text_input.dart';
 import 'package:cuit/widgets/logo.dart';
-import 'package:cuit/widgets/TextInput.dart';
-import 'package:cuit/widgets/PasswordInput.dart';
 
-class Login extends StatefulWidget {
+class Signup extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignupState createState() => _SignupState();
 }
 
-class _LoginState extends State<Login> {
+class _SignupState extends State<Signup> {
   TextEditingController _emailController;
+  TextEditingController _fullnameController;
   TextEditingController _passwordController;
 
   @override
   void initState() {
     super.initState();
     _emailController = TextEditingController();
+    _fullnameController = TextEditingController();
     _passwordController = TextEditingController();
   }
 
   @override
   void dispose() {
     _emailController.dispose();
+    _fullnameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -54,7 +57,7 @@ class _LoginState extends State<Login> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Masuk",
+                            "Daftar",
                             style: TextStyle(
                                 fontWeight: FontWeight.w900,
                                 color:
@@ -65,7 +68,7 @@ class _LoginState extends State<Login> {
                             height: 10.0,
                           ),
                           Text(
-                            "Hai! selamat datang kembali.",
+                            "Isi identitas profil kamu.",
                             style: TextStyle(
                                 color:
                                     Theme.of(context).textTheme.bodyText1.color,
@@ -76,6 +79,12 @@ class _LoginState extends State<Login> {
                           ),
                           TextInput(
                               hintText: "Email", controller: _emailController),
+                          SizedBox(
+                            height: 14.0,
+                          ),
+                          TextInput(
+                              hintText: "Nama lengkap",
+                              controller: _fullnameController),
                           SizedBox(
                             height: 14.0,
                           ),
@@ -95,7 +104,7 @@ class _LoginState extends State<Login> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Belum punya akun?',
+                                  'Sudah punya akun?',
                                   style: TextStyle(
                                       color: Theme.of(context)
                                           .textTheme
@@ -105,8 +114,8 @@ class _LoginState extends State<Login> {
                                 ),
                                 TextButton(
                                     onPressed: () =>
-                                        Navigator.pushNamed(context, '/signup'),
-                                    child: Text("Daftar",
+                                        Navigator.pushNamed(context, '/login'),
+                                    child: Text("Masuk",
                                         style: TextStyle(
                                             color: Theme.of(context)
                                                 .textTheme
@@ -124,10 +133,11 @@ class _LoginState extends State<Login> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       print(_emailController.text);
+                                      print(_fullnameController.text);
                                       print(_passwordController.text);
                                     },
                                     child: Text(
-                                      "Masuk",
+                                      "Buat akun",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700),
                                     )))
